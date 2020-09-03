@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>fingers game!</title>
+
+    </head>
+
+    <body>
+        
+        <p id="prompt">select a number of fingers to hold up
+
+        <select id="numberOfFingers">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+
+        </select>
+
+        <button id="submit">submit</button>
+    
+        </p>
+
+        <script type="text/javascript"> 
+
+            function doAGuess(correctAnswer) {
+
+                var guess = Math.random();
+
+                    guess = guess * 6;
+
+                    guess = Math.floor(guess);
+
+                    if (guess == correctAnswer) {
+
+                        return(true);
+
+                    } else {
+
+                        return(false);
+                        
+                    }
+
+            }
+
+            document.getElementById("submit").onclick = function () {
+
+                var number = document.getElementById("numberOfFingers").value;
+
+                var gotIt = false;
+
+                var guessCount = 1;
+
+                var tryOrTries = " try";
+
+                while (gotIt == false) {
+
+                    if (doAGuess(number) == true) {
+
+                        gotIt = true;
+
+                        alert("Got it! " + "it was " + number + ". it took " + guessCount + tryOrTries);                     
+
+                        //computer is correct
+
+                    } else {
+
+                        guessCount++;
+
+                        //computer is correct
+                        
+                    }
+
+                    if (guessCount > 1) {
+
+                        tryOrTries = " tries";
+
+                        } else {
+
+                        //do nothing - if one is already already handled at top by default 
+
+                        }
+                }
+
+
+                
+            }      
+
+        </script>
+        
+    </body>
+    
+
+</html>
